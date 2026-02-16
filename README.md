@@ -1,4 +1,4 @@
-# 🚀 High-Throughput Fan-Out Engine
+# High-Throughput Fan-Out Engine
 
 A production-ready, scalable, and high-performance **fan-out data processing engine** built using Java 21. This project demonstrates modern backend design principles including concurrency, reliability, fault tolerance, extensibility, and observability.
 
@@ -6,9 +6,9 @@ A production-ready, scalable, and high-performance **fan-out data processing eng
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🎯 Core Features
+### Core Features
 - **High Throughput**: Parallel processing using Java 21 Virtual Threads
 - **Zero Data Loss**: Dead Letter Queue (DLQ) persistence for failed records
 - **Backpressure Handling**: BlockingQueue prevents memory overflow
@@ -30,7 +30,7 @@ A production-ready, scalable, and high-performance **fan-out data processing eng
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### System Layers
 
@@ -122,7 +122,7 @@ performance:
 ```
 
 ---
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Java 21 or later (check with `java -version`)
@@ -148,11 +148,11 @@ java -jar target/fanout-engine.jar --testMode
 
 **Expected Output:**
 ```
-🚀 Starting High Throughput Fan-Out Engine...
-📊 Config: Queue=1000, Sinks=4, DLQ=true
-🧪 Test Mode: Processing 3 records
-✅ Processing complete
-📈 === FINAL METRICS ===
+Starting High Throughput Fan-Out Engine...
+Config: Queue=1000, Sinks=4, DLQ=true
+Test Mode: Processing 3 records
+Processing complete
+=== FINAL METRICS ===
    Processed: 3
    Throughput: 600 records/sec
    Success: {REST=3, GRPC=3, MQ=3, DB=3}
@@ -180,19 +180,19 @@ mvn clean test -X
 ### Run Options
 
 ```bash
-# 🎯 Test mode (recommended first run)
+# Test mode (recommended first run)
 java -jar target/fanout-engine.jar --testMode
 
-# 🚀 Production mode (stream records from file)
+# Production mode (stream records from file)
 java -jar target/fanout-engine.jar
 
-# 💾 With custom heap size (for large files)
+# With custom heap size (for large files)
 java -Xmx2g -jar target/fanout-engine.jar
 
-# 🔌 Run via Maven plugin (no JAR needed)
+# Run via Maven plugin (no JAR needed)
 mvn exec:java
 
-# 🐛 Debug mode (port 5005)
+# Debug mode (port 5005)
 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 \
      -jar target/fanout-engine.jar
 ```
@@ -252,12 +252,12 @@ ls -la src/main/java/com/fanout/
 
 ---
 
-## 📊 Metrics Output
+## Metrics Output
 
 Every 5 seconds, the engine prints real-time metrics:
 
 ```
-📊 === METRICS REPORT ===
+ === METRICS REPORT ===
    Processed: 5000
    Throughput: 1000 records/sec
    Success: {REST=1250, GRPC=1250, MQ=1250, DB=1250}
@@ -275,7 +275,7 @@ Every 5 seconds, the engine prints real-time metrics:
 
 ---
 
-## 🔄 Retry & DLQ Flow
+## Retry & DLQ Flow
 
 ```
 Record → Sink.send()
@@ -292,7 +292,7 @@ DLQ File Format (JSONL):
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Test Suite
 
@@ -390,7 +390,7 @@ sinkList.add(new ElasticsearchSink(
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 High-Throughput-Fan-Out-Engine/
@@ -455,7 +455,7 @@ High-Throughput-Fan-Out-Engine/
 
 ---
 
-## 💾 Memory Management
+## Memory Management
 
 ### Streaming Architecture
 - **File Reading**: Line-by-line (no full load)
@@ -479,7 +479,7 @@ Even with **100GB files**, memory usage stays under **512MB**! 🎯
 
 ---
 
-## 🚄 Performance Characteristics
+## Performance Characteristics
 
 ### Scalability
 - **Linear with CPU cores** (Virtual Threads)
@@ -499,7 +499,7 @@ With optimization:
 
 ---
 
-## 🛡️ Resilience & Zero Data Loss
+## Resilience & Zero Data Loss
 
 ### Retry Mechanism
 - Max 3 attempts per sink
@@ -520,7 +520,7 @@ With optimization:
 
 ---
 
-## 📖 Design Documentation
+## Design Documentation
 
 For detailed architecture and design patterns, see:
 - [ARCHITECTURE.md](docs/ARCHITECTURE.md) - System design, patterns, scalability
@@ -528,7 +528,7 @@ For detailed architecture and design patterns, see:
 
 ---
 
-## 🔍 Key Components
+## Key Components
 
 ### 1. ConfigLoader
 Loads `application.yaml` and provides typed access:
@@ -571,7 +571,7 @@ Strategy pattern for data transformation:
 
 ---
 
-## 📊 Evaluation Against Requirements
+## Evaluation Against Requirements
 
 | Requirement | Status | Evidence |
 |--|--|--|
@@ -594,36 +594,36 @@ Strategy pattern for data transformation:
 
 ---
 
-## 🎯 Quick Reference
+## Quick Reference
 
 ### Common Commands
 
 ```bash
-# ⚡ Quick setup
+# Quick setup
 mvn clean install && java -jar target/fanout-engine.jar --testMode
 
-# 📊 Run tests with output
+# Run tests with output
 mvn clean test -X -e
 
-# 🔧 Build without tests (fast)
+# Build without tests (fast)
 mvn clean package -DskipTests -q
 
-# 🎯 Run production mode
+# Run production mode
 java -jar target/fanout-engine.jar
 
-# 🧪 Run specific test
+# Run specific test
 mvn test -Dtest=IntegrationTest -e
 
-# 📈 Check metrics
-# Look for "📊 === METRICS REPORT ===" in output
+# Check metrics
+# Look for "=== METRICS REPORT ===" in output
 
-# 💾 View failed records
+# View failed records
 cat dlq/failed-records.jsonl | head -10
 
-# 🗑️ Clean build artifacts
+# Clean build artifacts
 mvn clean
 
-# 🔍 Debug mode
+# Debug mode
 export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
 mvn exec:java
 ```
@@ -666,7 +666,7 @@ sinks:
 
 ---
 
-## 📚 Documentation Map
+## Documentation Map
 
 | Document | Purpose |
 |---|---|
@@ -678,7 +678,7 @@ sinks:
 
 ---
 
-## 🐛 Debug Tips
+## Debug Tips
 
 ### Enable Verbose Logging
 ```bash
@@ -718,7 +718,7 @@ java -XX:+UnlockCommercialFeatures -XX:+FlightRecorder \
 
 ---
 
-## 🎓 Learning Path
+## Learning Path
 
 1. **Beginner**: Read overview section above
 2. **Intermediate**: Run test mode, examine test files
@@ -727,7 +727,7 @@ java -XX:+UnlockCommercialFeatures -XX:+FlightRecorder \
 
 ---
 
-## ❓ FAQ
+## FAQ
 
 **Q: How do I process my own data file?**
 ```
