@@ -1,0 +1,6 @@
+com\fanout\DLQTest.class
+com\fanout\SinkBehaviorTest.class
+com\fanout\RetryTest.class
+com\fanout\IntegrationTest.class
+com\fanout\RetryIntegrationTest.class
+com\fanout\TransformerTest.class

@@ -1,0 +1,45 @@
+# Build artifacts
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+dependency-reduced-pom.xml
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+releases/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+*.iws
+*.ipr
+
+# JVM
+.jvm-flags
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# DLQ and runtime files
+dlq/
+*.jsonl
+
+# Environment
+.env
+.env.local
+
+# Test outputs
+test-results/

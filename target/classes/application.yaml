@@ -1,0 +1,59 @@
+# High-Throughput Fan-Out Engine Configuration
+
+# Input file configuration
+input:
+  filePath: "sample-data/input.json"
+  format: "jsonl"  # Supported: json, jsonl, csv, fixedwidth
+
+# Queue configuration
+queue:
+  capacity: 1000
+  timeoutMs: 5000
+
+# Sink configurations with rate limits and endpoints
+sinks:
+  rest:
+    name: "REST"
+    endpoint: "http://api.example.com/batch"
+    rateLimit: 50
+    retryCount: 3
+    enabled: true
+  
+  grpc:
+    name: "GRPC"
+    endpoint: "grpc://api.example.com:50051"
+    rateLimit: 200
+    retryCount: 3
+    enabled: true
+  
+  mq:
+    name: "MQ"
+    endpoint: "kafka://localhost:9092/topic"
+    rateLimit: 500
+    retryCount: 3
+    enabled: true
+  
+  db:
+    name: "DB"
+    endpoint: "cassandra://localhost:9042/keyspace"
+    rateLimit: 1000
+    retryCount: 3
+    enabled: true
+
+# Dead Letter Queue configuration
+dlq:
+  enabled: true
+  filePath: "dlq/failed-records.jsonl"
+  maxRetries: 3
+
+# Metrics and observability
+metrics:
+  enabled: true
+  intervalSeconds: 5
+  verboseLogging: true
+
+# Performance tuning
+performance:
+  virtualThreads: true
+  batchSize: 100
+  memoryHeapMb: 512
